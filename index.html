@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-black text-white py-4">
+    <header class="fixed top-0 left-0 right-0 bg-black bg-opacity-90 text-white py-4 z-50 backdrop-blur-sm">
         <div class="container mx-auto flex items-center justify-between">
             <!-- Mobile menu toggle and search -->
             <div class="flex items-center md:hidden">
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Mobile Nav Dropdown Content -->
-        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-gray-800 px-4 py-4 z-50 opacity-0 transition-opacity duration-300 ease-in-out">
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-gray-800 bg-opacity-95 px-4 py-4 z-50 opacity-0 transition-opacity duration-300 ease-in-out backdrop-blur-sm">
              <div class="relative mb-4">
                  <input type="text" placeholder="Search" class="bg-gray-700 text-white px-4 py-2 rounded-md w-full focus:outline-none">
              </div>
