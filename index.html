@@ -55,7 +55,26 @@
     <main>
         <section class="sect-1 relative h-screen bg-cover bg-center" id="hero-section">
             <div class="absolute inset-0 bg-black opacity-50" id="hero-overlay"></div>
-            <video id="hero-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay src="images/Nasa-Simulation Of Falling Into A Black Hole.mp4"></video>
+            <!-- Fallback image for mobile -->
+            <div id="hero-fallback" class="absolute inset-0 w-full h-full hidden">
+                <img src="images/img-section2.avif" alt="NASA Hero Background" class="w-full h-full object-cover">
+            </div>
+            <video 
+                id="hero-video" 
+                class="absolute inset-0 w-full h-full object-cover" 
+                loop 
+                muted 
+                playsinline
+                autoplay 
+                preload="auto"
+                poster="images/img-section2.avif"
+                x-webkit-airplay="allow"
+                webkit-playsinline="true"
+            >
+                <source src="images/Nasa-Simulation Of Falling Into A Black Hole.mp4" type="video/mp4" />
+                <source src="images/Nasa-Simulation Of Falling Into A Black Hole.webm" type="video/webm" />
+                Votre navigateur ne prend pas en charge la lecture de vidéos.
+            </video>
             <div class="relative z-10 flex items-center justify-center h-full">
                 <div class="text-white text-center" data-aos="fade-up" data-aos-duration="1000">
                     <h1 class="text-5xl font-bold mb-4">For the Benefit of All</h1>
@@ -485,5 +504,98 @@
         });
     </script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            const fallback = document.getElementById('hero-fallback');
+            const overlay = document.getElementById('hero-overlay');
+
+            // Fonction pour détecter si l'appareil est mobile
+            function isMobileDevice() {
+                return (
+                    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                    (window.innerWidth <= 768)
+                );
+            }
+
+            // Fonction pour gérer le chargement progressif
+            function handleVideoLoading() {
+                let loadingTimeout;
+                let isVideoPlaying = false;
+
+                // Timeout pour détecter si la vidéo ne se charge pas
+                loadingTimeout = setTimeout(() => {
+                    if (!isVideoPlaying) {
+                        showFallback();
+                    }
+                }, 5000); // 5 secondes de timeout
+
+                // Écouter les événements de la vidéo
+                video.addEventListener('playing', () => {
+                    isVideoPlaying = true;
+                    clearTimeout(loadingTimeout);
+                    hideFallback();
+                });
+
+                video.addEventListener('error', () => {
+                    showFallback();
+                });
+
+                // Gérer la visibilité de la page
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        video.pause();
+                    } else {
+                        if (!isVideoPlaying) {
+                            video.play().catch(() => {
+                                showFallback();
+                            });
+                        }
+                    }
+                });
+            }
+
+            // Fonction pour afficher le fallback
+            function showFallback() {
+                video.style.display = 'none';
+                fallback.classList.remove('hidden');
+                overlay.style.zIndex = '20'; // S'assurer que l'overlay reste au-dessus
+            }
+
+            // Fonction pour cacher le fallback
+            function hideFallback() {
+                video.style.display = 'block';
+                fallback.classList.add('hidden');
+            }
+
+            // Initialisation
+            if (isMobileDevice()) {
+                // Sur mobile, on attend que la vidéo soit chargée
+                video.addEventListener('loadeddata', () => {
+                    video.play().catch(() => {
+                        showFallback();
+                    });
+                });
+            } else {
+                // Sur desktop, on lance directement
+                video.play().catch(() => {
+                    showFallback();
+                });
+            }
+
+            // Gérer le chargement progressif
+            handleVideoLoading();
+
+            // Gérer le redimensionnement de la fenêtre
+            window.addEventListener('resize', () => {
+                if (isMobileDevice()) {
+                    // Sur mobile, on peut vouloir utiliser le fallback
+                    if (!video.playing) {
+                        showFallback();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
