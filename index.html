@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Home Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-black text-white py-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Mobile menu toggle and search -->
+            <div class="flex items-center md:hidden">
+                <button id="mobile-menu-button" class="flex items-center space-x-1 focus:outline-none text-white">
+                    <span class="text-lg font-bold">Explore</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 transform rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </div>
+
+             <!-- Desktop Search -->
+             <div class="relative hidden md:block">
+                 <input type="text" placeholder="Search" class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none">
+             </div>
+
+            <div class="flex-shrink-0">
+                <img src="images/logo-n.jpg" alt="NASALogo" class="h-10">
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:underline">News & Events</a></li>
+                    <li><a href="#" class="hover:underline">Multimedia</a></li>
+                    <li><a href="#" class="flex items-center hover:underline">NASA+ <span class="ml-1 bg-red-600 text-white text-xs px-1 rounded">LIVE</span></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Nav Dropdown Content -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-gray-800 px-4 py-4 z-50 opacity-0 transition-opacity duration-300 ease-in-out">
+             <div class="relative mb-4">
+                 <input type="text" placeholder="Search" class="bg-gray-700 text-white px-4 py-2 rounded-md w-full focus:outline-none">
+             </div>
+            <ul class="flex flex-col space-y-2">
+                <li><a href="#" class="block text-white hover:underline py-2">News & Events</a></li>
+                <li><a href="#" class="block text-white hover:underline py-2">Multimedia</a></li>
+                <li><a href="#" class="block text-white flex items-center hover:underline py-2">NASA+ <span class="ml-1 bg-red-600 text-white text-xs px-1 rounded">LIVE</span></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="sect-1 relative h-screen bg-cover bg-center" id="hero-section">
+            <div class="absolute inset-0 bg-black opacity-50" id="hero-overlay"></div>
+            <video id="hero-video" class="absolute inset-0 w-full h-full object-cover" loop muted autoplay src="images/Nasa-Simulation Of Falling Into A Black Hole.mp4"></video>
+            <div class="relative z-10 flex items-center justify-center h-full">
+                <div class="text-white text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="text-5xl font-bold mb-4">For the Benefit of All</h1>
+                    <p class="text-lg mb-8">NASA investigates the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.</p>
+                    <button class="bg-red-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-red-700">NASA Missions</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8" data-aos="fade-right">
+                <h2 class="text-3xl font-bold">Featured News</h2>
+                <a href="#" class="text-red-600 flex items-center">
+                    Recently Published
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Large Feature Card -->
+                <div class="md:col-span-2 relative" data-aos="fade-right" data-aos-delay="200">
+                    <img src="images/img-section2.avif" alt="" class="w-full h-96 object-cover rounded-md">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <p class="text-sm mb-1"><span class="bg-gray-700 px-2 py-1 rounded">BLOG</span></p>
+                        <p class="text-sm mb-1">3 MIN READ</p>
+                        <h3 class="text-xl font-bold">Crew Works on Spacesuits, Life Support as Human Research Continues</h3>
+                    </div>
+                </div>
+
+                <!-- Small Cards -->
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="relative" data-aos="fade-left" data-aos-delay="300">
+                        <img src="images/img-perso-section2.avif" alt="" class="w-full h-48 object-cover rounded-md">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-md"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="text-sm mb-1"><span class="bg-gray-700 px-2 py-1 rounded">BLOG</span></p>
+                            <p class="text-sm mb-1">2 MIN READ</p>
+                            <h3 class="text-lg font-bold">NASA Marks Milestones for Artemis III Orion Spacecraft at Kennedy</h3>
+                        </div>
+                    </div>
+                    <div class="relative" data-aos="fade-left" data-aos-delay="400">
+                        <img src="images/img-f-section2.avif" alt="" class="w-full h-48 object-cover rounded-md">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-md"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                             <p class="text-sm mb-1"><span class="bg-gray-700 px-2 py-1 rounded">IMAGE ARTICLE</span></p>
+                            <p class="text-sm mb-1">5 MIN READ</p>
+                            <h3 class="text-lg font-bold">Eccentric 'Star' Defies Easy Explanation, NASA's Chandra Finds</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Additional Small Cards Row -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+                <div class="flex items-center space-x-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/photo-img2.avif" alt="" class="w-16 h-16 object-cover rounded-full">
+                    <div>
+                        <p class="text-sm text-gray-600">2 MIN READ</p>
+                        <h3 class="text-md font-bold">NASA's Psyche Spacecraft Using Backup Fuel Line</h3>
+                         <p class="text-sm text-gray-600"><span class="bg-gray-300 px-1 rounded">BLOG</span></p>
+                    </div>
+                </div>
+                 <div class="flex items-center space-x-4" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/photo-img3.avif" alt="" class="w-16 h-16 object-cover rounded-full">
+                    <div>
+                        <p class="text-sm text-gray-600">2 MIN READ</p>
+                        <h3 class="text-md font-bold">NASA's EZIE Begins Study of Auroral Electrojets</h3>
+                         <p class="text-sm text-gray-600"><span class="bg-gray-300 px-1 rounded">BLOG</span></p>
+                    </div>
+                </div>
+                 <div class="flex items-center space-x-4" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/photo-img4.avif" alt="" class="w-16 h-16 object-cover rounded-full">
+                    <div>
+                        <p class="text-sm text-gray-600">5 MIN READ</p>
+                        <h3 class="text-md font-bold">Percolating Clues: NASA Models New Way to Build Planetary Cores</h3>
+                         <p class="text-sm text-gray-600"><span class="bg-gray-300 px-1 rounded">ARTICLE</span></p>
+                    </div>
+                </div>
+                 <div class="flex items-center space-x-4" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/photo-img5.avif" alt="" class="w-16 h-16 object-cover rounded-full">
+                    <div>
+                        <p class="text-sm text-gray-600">6 MIN READ</p>
+                        <h3 class="text-md font-bold">NASA's Dragonfly Mission Sets Sights on Titan's Mysteries</h3>
+                         <p class="text-sm text-gray-600"><span class="bg-gray-300 px-1 rounded">ARTICLE</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/img-section3.avif');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 flex items-center h-full px-4">
+            <div class="text-white max-w-md" data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="text-5xl font-bold mb-4">Adaptable Airspace</h2>
+                <p class="text-lg mb-8">In the latest episode of the "Small Steps, Giant Leaps" podcast, hear how NASA's Air Traffic Management eXploration project will transform the air traffic management system to safely accommodate the growing demand of new vehicles.</p>
+                <a href="#" class="text-red-600 flex items-center text-lg font-semibold hover:underline">
+                    Listen to the Podcast
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 4 -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">NASA Multimedia</h2>
+                <a href="#" class="text-red-600 flex items-center">
+                    Discover More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="relative h-64 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="100" style="background-image: url('images/img-section-4.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <a href="#" class="text-gray-100 hover:text-red-500 transition duration-300 flex items-center">
+                            <h3 class="text-xl font-bold mb-2">NASA Images</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="relative h-64 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="200" style="background-image: url('images/imgpas-section4.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <a href="#" class="text-gray-100 hover:text-red-500 transition duration-300 flex items-center">
+                         <h3 class="text-xl font-bold mb-2">Podcasts</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="relative h-64 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="300" style="background-image: url('images/imgperso-section4.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <a href="#" class="text-gray-100 hover:text-red-500 transition duration-300 flex items-center">
+                         <h3 class="text-xl font-bold mb-2">Mobile and Desktop Apps</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="relative h-64 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="400" style="background-image: url('images/imgcasque-section4.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <a href="#" class="text-gray-100 hover:text-red-500 transition duration-300 flex items-center">
+                            <h3 class="text-xl font-bold mb-2">Eyes</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 5 -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+            <!-- Left text column -->
+            <div class="md:w-1/2" data-aos="fade-right">
+                <p class="text-gray-600 text-sm font-semibold">TODAY</p>
+                <h2 class="text-4xl font-bold mt-1 mb-4">Image Of The Day</h2>
+                <h3 class="text-2xl font-bold mb-4">45 Years Ago: NASA Announces Ninth Astronaut Group</h3>
+                <p class="text-gray-700 mb-6">Sixteen of 19 astronaut candidates named on May 29, 1980, and two European trainees as payload specialists pose for photographers in the briefing room in the public affairs facility at NASA's Johnson Space Center in Houston.</p>
+                <a href="#" class="text-red-600 flex items-center font-semibold hover:underline">
+                    Browse Image Archive
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+            <!-- Right image column -->
+            <div class="md:w-1/2 relative" data-aos="fade-left">
+                <img src="images/img-section6.avif" alt="Ninth Astronaut Group" class="w-full h-auto rounded-md">
+                 <a href="#" class="absolute bottom-4 right-4 text-white flex items-center font-semibold hover:underline">
+                    View image
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">More NASA Images</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Gallery Card 1 -->
+                <div class="flex flex-col" data-aos="flip-left" data-aos-delay="100">
+                    <div class="grid grid-cols-2 gap-1 mb-4">
+                        <img src="images/photo-img2.avif" alt="Spacewalker 1" class="w-full h-40 object-cover rounded-tl-md">
+                        <img src="images/photo-img3.avif" alt="Spacewalker 2" class="w-full h-40 object-cover rounded-tr-md">
+                        <img src="images/photo-img4.avif" alt="Spacewalker 3" class="w-full h-40 object-cover rounded-bl-md">
+                         <img src="images/photo-img5.avif" alt="Spacewalker 4" class="w-full h-40 object-cover rounded-br-md">
+                    </div>
+                    <h3 class="text-xl font-bold">NASA Spacewalkers Gallery</h3>
+                    <p class="text-gray-600 text-sm">24 IMAGES</p>
+                </div>
+
+                <!-- Gallery Card 2 -->
+                <div class="flex flex-col" data-aos="flip-left" data-aos-delay="200">
+                    <div class="grid grid-cols-2 gap-1 mb-4">
+                        <img src="images/photo-img6.avif" alt="Don Pettit 1" class="w-full h-40 object-cover rounded-tl-md">
+                        <img src="images/photo-img7.avif" alt="Don Pettit 2" class="w-full h-40 object-cover rounded-tr-md">
+                        <img src="images/photo-img8.avif" alt="Don Pettit 3" class="w-full h-40 object-cover rounded-bl-md">
+                        <img src="images/premium_img.avif" alt="Don Pettit 4" class="w-full h-40 object-cover rounded-br-md">
+                    </div>
+                    <h3 class="text-xl font-bold">Astronaut Don Pettit's Photos from Space Gallery</h3>
+                    <p class="text-gray-600 text-sm">24 IMAGES</p>
+                </div>
+
+                <!-- Gallery Card 3 -->
+                <div class="flex flex-col" data-aos="flip-left" data-aos-delay="300">
+                     <div class="grid grid-cols-2 gap-1 mb-4">
+                        <img src="images/photo-img89avif.avif" alt="Matthew Dominick 1" class="w-full h-40 object-cover rounded-tl-md">
+                        <img src="images/photo-img10.avif" alt="Matthew Dominick 2" class="w-full h-40 object-cover rounded-tr-md">
+                        <img src="images/photo-img11.avif" alt="Matthew Dominick 3" class="w-full h-40 object-cover rounded-bl-md">
+                         <img src="images/photo-img12.avif" alt="Matthew Dominick 4" class="w-full h-40 object-cover rounded-br-md">
+                    </div>
+                    <h3 class="text-xl font-bold">Astronaut Matthew Dominick's Photos from Space Gallery</h3>
+                    <p class="text-gray-600 text-sm">24 IMAGES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('images/photo-img.avif');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 flex items-center h-full px-4">
+            <div class="text-white max-w-md" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-5xl font-bold mb-4">Explore the Universe from your Inbox</h2>
+                <p class="text-lg mb-2">Stay up-to-date on the latest news from NASA—from Earth to the Moon, the Solar System and beyond.</p>
+                <p class="text-sm mb-6">We will never share your email address. <a href="#" class="underline hover:no-underline">Privacy Policy</a></p>
+                <a href="#" class="text-red-600 flex items-center text-lg font-semibold hover:underline">
+                    Sign Up
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-200">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+            <!-- Left text column -->
+            <div class="md:w-1/2" data-aos="fade-right">
+                <p class="text-gray-600 text-sm font-semibold">Earth Information Center</p>
+                <h2 class="text-4xl font-bold mt-1 mb-4">Explore our changing planet</h2>
+                <p class="text-gray-700 mb-6">For more than 50 years, NASA satellites have provided data on Earth's land, water, air, temperature, and climate. NASA's Earth Information Center allows visitors to see how our planet is changing in six key areas: sea level rise and coastal impacts, health and air quality, wildfires, greenhouse gases, sustainable energy, and agriculture.</p>
+                <a href="#" class="text-red-600 flex items-center font-semibold hover:underline">
+                    Earth Science
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+            <!-- Right image column -->
+            <div class="md:w-1/2" data-aos="fade-left">
+                <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/iss040e067316.jpg" alt="St. Clair River" class="w-full h-auto rounded-md mb-2">
+                <p class="text-gray-600 text-sm">The St. Clair River flows into the freshwater Lake St. Clair and separates the American state of Michigan (top) from the Canadian province of Ontario (bottom) in this photograph from the International Space Station as it orbited 260 miles above.</p>
+                <p class="text-gray-600 text-sm font-semibold mt-1">NASA</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sect-ex py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">More Topics from NASA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Card 1: Missions -->
+                <div class="relative h-96 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="100" style="background-image: url('images/ig-mission.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold mb-2">Missions</h3>
+                        <a href="#" class="text-red-600 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Humans In Space -->
+                <div class="relative h-96 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="200" style="background-image: url('images/ig-human.avif');">
+                     <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                     <div class="absolute bottom-4 left-4 text-white">
+                         <h3 class="text-xl font-bold mb-2">Humans In Space</h3>
+                         <a href="#" class="text-red-600 flex items-center">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                             </svg>
+                         </a>
+                     </div>
+                </div>
+
+                <!-- Card 3: Earth -->
+                <div class="relative h-96 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="300" style="background-image: url('images/ig-eart.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold mb-2">Earth</h3>
+                        <a href="#" class="text-red-600 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Our Solar System -->
+                <div class="relative h-96 bg-cover bg-center rounded-md" data-aos="zoom-in" data-aos-delay="400" style="background-image: url('images/ig-Our-Solar-System.avif');">
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-md"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="text-xl font-bold mb-2">Our Solar System</h3>
+                        <a href="#" class="text-red-600 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black">
+        <div class="px-4 py-12 text-gray-400">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1">
+                    <img src="images/logo-n.jpg" alt="NASA Logo" class="h-12 mb-4">
+                    <h3 class="text-white text-xl font-bold mb-2">National Aeronautics and Space Administration</h3>
+                    <p class="text-sm mb-4">NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.</p>
+                    <a href="#" class="text-red-600 flex items-center font-semibold hover:underline mb-2">
+                        About NASA's Mission
+                    </a>
+                    <a href="#" class="text-red-600 flex items-center font-semibold hover:underline">
+                        Join Us
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
+                    <div>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:underline">Home</a></li>
+                            <li><a href="#" class="hover:underline">News & Events</a></li>
+                            <li><a href="#" class="hover:underline">Multimedia</a></li>
+                            <li><a href="#" class="hover:underline">NASA+ <span class="ml-1 bg-red-600 text-white text-xs px-1 rounded">LIVE</span></a></li>
+                            <li><a href="#" class="hover:underline">Missions</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:underline">Humans in Space</a></li>
+                            <li><a href="#" class="hover:underline">Earth</a></li>
+                            <li><a href="#" class="hover:underline">The Solar System</a></li>
+                            <li><a href="#" class="hover:underline">The Universe</a></li>
+                            <li><a href="#" class="hover:underline">Science</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                         <ul class="space-y-2">
+                            <li><a href="#" class="hover:underline">Aeronautics</a></li>
+                            <li><a href="#" class="hover:underline">Technology</a></li>
+                            <li><a href="#" class="hover:underline">Learning Resources</a></li>
+                            <li><a href="#" class="hover:underline">About NASA</a></li>
+                            <li><a href="#" class="hover:underline">NASA en Español</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <h3 class="text-white text-lg font-bold mb-4">Follow NASA</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.511-1.333h2.489v-4h-3.27c-3.22 0-4.73 1.741-4.73 4.17z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.614 0 2.91.01 3.703.048 2.672.045 3.853.563 4.667 1.378s1.333 1.995 1.378 4.667c.038.793.048 1.089.048 3.703s-.01 2.91-.048 3.703c-.045 2.672-.563 3.853-1.378 4.667s-1.995 1.333-4.667 1.378c-.793.038-1.089.048-3.703.048s-2.91-.01-3.703-.048c-2.672-.045-3.853-.563-4.667-1.378s-1.333-1.995-1.378-4.667c-.038-.793-.048-1.089-.048-3.703s.01-2.91.048-3.703c.045-2.672.563-3.853 1.378-4.667s1.995-1.333 4.667-1.378c.793-.038 1.089-.048 3.703-.048zm0-2c-2.717 0-3.056.014-4.122.06c-1.07.046-1.85.247-2.514.507s-1.298.68-1.837 1.222c-.539.539-.943 1.199-1.222 1.837s-.462 1.444-.507 2.514c-.046 1.066-.06 1.405-.06 4.122s.014 3.056.06 4.122c.046 1.07.247 1.85.507 2.514s.68 1.298 1.222 1.837c.539.539 1.199.943 1.837 1.222s1.444.462 2.514.507c1.066.046 1.405.06 4.122.06s3.056-.014 4.122-.06c1.07-.046 1.85-.247 2.514-.507s1.298-.68 1.222-1.222c.539-.539.943-1.199 1.222-1.837s.462-1.444.507-2.514c.046-1.066.06-1.405.06-4.122s-.014-3.056-.06-4.122c-.046-1.07-.247-1.85-.507-2.514s-.68-1.298-1.222-1.837c-.539-.539-1.199-.943-1.837-1.222s-1.444-.462-2.514-.507c-1.066-.046-1.405-.06-4.122-.06zm0 6c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 10c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm6.5-9c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-4.891 8.485c-1.629-.08-2.306-.158-2.91-.003-.705.18-.962.76-.962 1.582v3.525c0 .783-.352 1.1-.846 1.1-.272 0-.491-.2-.491-.45v-7.024c0-.25-.22-.45-.492-.45h-1.35c-.272 0-.491.2-.491.45v11.35c0 .25.22.45.45h1.35c.271 0 .491-.2.491-.45v-3.841c0-1.043.095-1.681.803-1.869.374-.1.735-.087 1.456.086.622.15 1.572.153 2.91-.004.271 0 .49-.2.49-.45v-1.34c0-.25-.219-.45-.491-.45zm7.891 10.515c0 .25-.22.45-.491.45h-1.349c-.272 0-.492-.2-.492-.45v-3.92c0-1.057-.122-1.946-1.289-2.17-.281-.055-.711-.078-1.072-.038-.512.055-.864.223-1.145.468-.28.244-.46.573-.575.897-.116.324-.169.716-.169 1.135v3.63c0 .25-.22.45-.491.45h-1.35c-.272 0-.492-.2-.492-.45v-7.025c0-.25.22-.45.492-.45h1.35c.271 0 .491.2.491.45v.863c.367-.336.779-.625 1.235-.862.662-.343 1.413-.555 2.263-.625 1.005-.082 2.035-.006 2.707.376.805.452 1.201 1.115 1.343 1.937.117.688.132 1.587.039 2.702-.054.636-.085 1.134-.09 1.618v3.598zm-4.999-10.015c-.272 0-.491.2-.491.45v3.024c0 .25.219.45.491.45h1.35c.271 0 .491-.2.491-.45v-3.024c0-.25-.219-.45-.491-.45h-1.35zm-2.999 3.015c-.272 0-.492.2-.492.45v7.025c0 .25.22.45.492.45h1.35c.271 0 .491-.2.491-.45v-7.025c0-.25-.219-.45-.491-.45h-1.35zm5.999-.015c-.272 0-.492.2-.492.45v.863c.367-.336.779-.625 1.235-.862.662-.343 1.413-.555 2.263-.625 1.005-.082 2.035-.006 2.707.376.805.452 1.201 1.115 1.343 1.937.117.688.132 1.587.039 2.702-.054.636-.085 1.134-.09 1.618v3.598zm9.001 0c-.272 0-.492.2-.492.45h-1.349c-.272 0-.492-.2-.492-.45v-3.92c0-1.057-.122-1.946-1.289-2.17-.281-.055-.711-.078-1.072-.038-.512.055-.864.223-1.145.468-.28.244-.46.573-.575.897-.116.324-.169.716-.169 1.135v3.63c0 .25-.22.45-.491.45h-1.35c-.272 0-.492-.2-.492-.45v-7.025c0-.25.22-.45.492-.45h1.35c.271 0 .491.2.491.45v.863c.367-.336.779-.625 1.235-.862.662-.343 1.413-.555 2.263-.625 1.005-.082 2.035-.006 2.707.376.805.452 1.201 1.115 1.343 1.937.117.688.132 1.587.039 2.702-.054.636-.085 1.134-.09 1.618v3.598z"/></svg></a>
+                         <a href="#" class="text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.962 17.415c-.837-.05-1.474-.097-1.966-.147-1.438-.146-2.91-.295-4.396-.452-.6-.06-1.2-.12-1.8-.17-.55-.05-1.08-.08-1.56-.08-.97 0-1.85.27-2.6.81-.32.22-.6.47-.84.74-.24.27-.42.56-.52.82-.04.11-.06.24-.06.39 0 .15.02.29.05.42.03.13.09.26.19.38.09.11.2.2.33.28.13.08.28.13.44.14.2.02.4-.01.59-.08.19-.07.38-.17.55-.29.18-.12.34-.25.48-.4.14-.15.25-.3.34-.46.09-.15.15-.3.19-.45l.05-.14c.016-.05.026-.1.03-.15l-.01.013c.16-.06.33-.13.5-.2.43-.18.86-.36 1.28-.54.76-.32 1.53-.64 2.29-.96.6-.25 1.2-.5 1.79-.76.45-.2.88-.4 1.3-.6.43-.2.83-.43 1.2-.67.23-.15.44-.3.63-.47.2-.17.35-.37.45-.58.1-.22.17-.44.2-.67.03-.22.03-.45 0-.67-.03-.23-.094-.44-.193-.64-.1-.2-.24-.37-.4-.52-.16-.15-.36-.27-.58-.36-.21-.1-.45-.15-.69-.15-.24 0-.48.03-.71.09-.23.06-.45.16-.65.28-.12.07-.24.15-.34.23-.17.12-.33.25-.48.39-.14.14-.26.29-.36.43-.28.35-.5.72-.64 1.1-.15.38-.23.77-.23 1.15-.002 1.335.166 2.564.514 3.695.344 1.107.816 2.126 1.407 3.046.62.95 1.275 1.867 1.966 2.754.06.08.117.16.176.24.07.09.13.17.18.26.05.08.09.17.13.26.08.19.136.37.16.55.025.18.01.36-.04.53-.05.18-.14.34-.28.48-.13.14-.3.24-.47.31-.17.07-.37.1-.56.1z"/></svg></a>
+                    </div>
+                    <a href="#" class="text-red-600 flex items-center font-semibold hover:underline mb-2">
+                        More NASA Social Accounts
+                    </a>
+                    <a href="#" class="text-red-600 flex items-center font-semibold hover:underline">
+                        NASA Newsletters
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-gray-500">
+                <div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 mb-4">
+                    <a href="#" class="hover:underline">Sitemap</a>
+                    <a href="#" class="hover:underline">For Media</a>
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <a href="#" class="hover:underline">FOIA</a>
+                    <a href="#" class="hover:underline">No FEAR Act</a>
+                    <a href="#" class="hover:underline">Office of the IG</a>
+                    <a href="#" class="hover:underline">Budget & Annual Reports</a>
+                    <a href="#" class="hover:underline">Agency Financial Reports</a>
+                    <a href="#" class="hover:underline">Contact NASA</a>
+                    <a href="#" class="hover:underline">Accessibility</a>
+                </div>
+                <div class="text-center md:text-left">
+                    <p>Page Last Updated: May 29, 2025</p>
+                    <p>Page Editor: Dacia Massengill</p>
+                    <p>Responsible NASA Official: Abigail Bowman</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
