@@ -67,6 +67,7 @@
                 webkit-playsinline="true"
             >
                 <source src="images/Nasa-Simulation Of Falling Into A Black Hole.mp4" type="video/mp4" />
+                <source src="images/Nasa-Simulation Of Falling Into A Black Hole.webm" type="video/webm" />
             </video>
             <div class="relative z-10 flex items-center justify-center h-full">
                 <div class="text-white text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -500,30 +501,88 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('hero-video');
-            
-            // Fonction pour s'assurer que la vidéo joue
-            function ensureVideoPlaying() {
-                if (video.paused) {
-                    video.play().catch(function(error) {
-                        console.log("Erreur de lecture vidéo:", error);
+            const overlay = document.getElementById('hero-overlay');
+            const heroSection = document.getElementById('hero-section');
+
+            // Fonction pour détecter si l'appareil est mobile
+            function isMobileDevice() {
+                return (
+                    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                    (window.innerWidth <= 768)
+                );
+            }
+
+            // Fonction pour gérer la lecture vidéo
+            function handleVideoPlayback() {
+                let isVideoPlaying = false;
+
+                // Écouter les événements de la vidéo
+                video.addEventListener('playing', () => {
+                    isVideoPlaying = true;
+                });
+
+                // Gérer la visibilité de la page
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        video.pause();
+                    } else {
+                        if (!isVideoPlaying) {
+                            video.play().catch(() => {
+                                console.log('Erreur de lecture vidéo');
+                            });
+                        }
+                    }
+                });
+
+                // Gérer le scroll
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // Si on scrolle vers le bas et qu'on dépasse la section hero
+                    if (scrollTop > heroSection.offsetHeight) {
+                        // On cache la vidéo et l'overlay
+                        video.style.opacity = '0';
+                        overlay.style.opacity = '0';
+                    } else {
+                        // Sinon on les affiche
+                        video.style.opacity = '1';
+                        overlay.style.opacity = '0.5';
+                    }
+                    
+                    lastScrollTop = scrollTop;
+                }, { passive: true });
+
+                // Initialisation
+                if (isMobileDevice()) {
+                    // Sur mobile, on attend que la vidéo soit chargée
+                    video.addEventListener('loadeddata', () => {
+                        video.play().catch(() => {
+                            console.log('Erreur de lecture vidéo sur mobile');
+                        });
+                    });
+                } else {
+                    // Sur desktop, on lance directement
+                    video.play().catch(() => {
+                        console.log('Erreur de lecture vidéo sur desktop');
                     });
                 }
             }
 
-            // Démarrer la vidéo
-            ensureVideoPlaying();
-
-            // Gérer la visibilité de la page
-            document.addEventListener('visibilitychange', function() {
-                if (!document.hidden) {
-                    ensureVideoPlaying();
+            // Ajouter des styles pour la transition
+            const style = document.createElement('style');
+            style.textContent = `
+                #hero-video {
+                    transition: opacity 0.3s ease-in-out;
                 }
-            });
+                #hero-overlay {
+                    transition: opacity 0.3s ease-in-out;
+                }
+            `;
+            document.head.appendChild(style);
 
-            // S'assurer que la vidéo continue de jouer pendant le scroll
-            window.addEventListener('scroll', function() {
-                ensureVideoPlaying();
-            });
+            // Initialiser la gestion de la vidéo
+            handleVideoPlayback();
         });
     </script>
 </body>
